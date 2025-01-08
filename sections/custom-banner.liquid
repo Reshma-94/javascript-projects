@@ -1,6 +1,47 @@
+<section class="custom-banner">
+  <div class="banner-container" style="background-image: url('{{ section.settings.banner_image | file_url }}');">
+    <div class="banner-content">
+      <h1>{{ section.settings.banner_title }}</h1>
+      <p>{{ section.settings.banner_subtitle }}</p>
+      <a href="{{ section.settings.banner_button_link }}" class="banner-btn">
+        {{ section.settings.banner_button_text }}
+      </a>
+    </div>
+  </div>
+</section>
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Custom Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner Background Image"
+    },
+    {
+      "type": "text",
+      "id": "banner_title",
+      "label": "Banner Title",
+      "default": "The Gift Guide"
+    },
+    {
+      "type": "textarea",
+      "id": "banner_subtitle",
+      "label": "Banner Subtitle",
+      "default": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season."
+    },
+    {
+      "type": "text",
+      "id": "banner_button_text",
+      "label": "Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "banner_button_link",
+      "label": "Button Link",
+      "default": "/collections/all"
+    }
+  ]
+}
 {% endschema %}
