@@ -1,6 +1,46 @@
+<section class="custom-grid">
+  <h2>{{ section.settings.grid_title }}</h2>
+  <div class="grid-container">
+    {% for block in section.blocks %}
+      <div class="grid-item">
+        <img src="{{ block.settings.image | file_url }}" alt="{{ block.settings.alt_text }}" data-popup>
+      </div>
+    {% endfor %}
+  </div>
+</section>
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Custom Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "grid_title",
+      "label": "Grid Title",
+      "default": "Tisso Vision in the Wild"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Grid Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+    "name": "Custom Grid",
+    }
+  ]
+}
 {% endschema %}
